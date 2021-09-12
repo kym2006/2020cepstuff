@@ -1,0 +1,26 @@
+import random
+def faircoin():
+    prob = random.randint(0,1)
+    if prob < 0.5:
+        return 'H'
+    else:
+        return 'T'
+
+avg = 0
+for it in range(10):
+    cnt = 0
+    times = 0
+    cur = 'A'
+    while times < 3:
+        coin = faircoin() 
+        print(coin,end=' ')
+        if coin == cur:
+            times += 1
+        else:
+            times = 1
+            cur = coin
+        cnt += 1
+    avg += cnt 
+    print("({} flips)".format(cnt))
+
+print("On average, {} flips were needed".format(avg/10))
